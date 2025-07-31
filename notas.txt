@@ -1,0 +1,74 @@
+:root {
+  /* Cores */
+
+  /* Content */
+  --content-primary: #FFFFFF; /* */
+  --content-secondary: #C7C9CC; /* */
+  --content-tertiary: #D9D9D9; /* */
+  --content-brand: #C58DE7; /* */
+  --color-inverse: #030203; /* */
+
+  /* Background */
+  --background-primary: #020202; /* */
+  --background-secondary: #111012; /* */
+  --background-tertiary: #24222E; /* */
+  --background-brand: #C58DE7; /* */
+  --background-gray: #3D3D3D; /* */
+
+  /* Accent */
+  --accent-pink: #D586ED; /* */
+  --accent-blue: #91A1FA; /* */
+  --accent-green: #77CC0A; /* */
+  --accent-lime: #D1DC97; /* */
+  --accent-red: #E9A9B3; /* */
+
+  /* Gradient */
+  --gradient-background: linear-gradient(to right, #77CC0A 0%, #D1DC97 100%); /* Baseado na imagem */
+  --gradient-border: linear-gradient(to right, #77CC0A 0%, #D1DC97 100%); /* Baseado na imagem */
+  --gradient-content: linear-gradient(to right, #91A1FA 0%, #C58DE7 100%); /* Baseado na imagem */
+
+
+  /* Fontes */
+
+  /* Sora */
+  --font-family-sora: "Sora", sans-serif; /* */
+  --sora-display-large-size: 72px; /* */
+  --sora-display-large-line-height: 130%; /* */
+  --sora-display-large-weight: 800; /* ExtraBold */
+
+  --sora-display-medium-size: 40px; /* */
+  --sora-display-medium-line-height: 130%; /* */
+  --sora-display-medium-weight: 800; /* ExtraBold */
+
+  --sora-display-small-size: 32px; /* */
+  --sora-display-small-line-height: 130%; /* */
+  --sora-display-small-weight: 700; /* Bold */
+
+  /* Roboto Mono */
+  --font-family-roboto-mono: "Roboto Mono", monospace; /* */
+  --roboto-mono-overline-size: 16px; /* */
+  --roboto-mono-overline-line-height: 150%; /* */
+  --roboto-mono-overline-weight: 700; /* Bold */
+
+  /* Roboto Flex */
+  --font-family-roboto-flex: "Roboto Flex", sans-serif; /* */
+  --roboto-flex-paragraph-large-size: 16px; /* */
+  --roboto-flex-paragraph-large-line-height: 150%; /* */
+  --roboto-flex-paragraph-large-weight: 500; /* Medium */
+
+  --roboto-flex-paragraph-medium-size: 14px; /* */
+  --roboto-flex-paragraph-medium-line-height: 150%; /* */
+  --roboto-flex-paragraph-medium-weight: 500; /* Medium */
+
+  --roboto-flex-paragraph-small-size: 12px; /* */
+  --roboto-flex-paragraph-small-line-height: 150%; /* */
+  --roboto-flex-paragraph-small-weight: 500; /* Medium */
+
+  --roboto-flex-label-medium-size: 20px; /* */
+  --roboto-flex-label-medium-line-height: 150%; /* */
+  --roboto-flex-label-medium-weight: 700; /* Bold */
+
+  --roboto-flex-label-small-size: 16px; /* */
+  --roboto-flex-label-small-line-height: 150%; /* */
+  --roboto-flex-label-small-weight: 700; /* Bold */
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Number</title>
+</head>
+<body>
+ <section id="home">
+    <header class="number-logo">
+      <img src="assets/logo.svg" alt="">
+    </header>
+    <div class="title">
+      <p>ONLINE - GRATUITO</p>
+      <h2>SORTEADOR DE NÚMEROS</h2>
+    </div>
+    <div class="draw-number">
+      <h3>QUERO SORTEAR:</h3>
+      <span class="description">Defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</span>
+      <form action="#">
+        <div class="numbers-input-section">
+          <div class="input-group">
+            <label for="quantity">NÚMEROS</label>
+            <input type="number" id="quantity" name="quantity" value="2" required>
+          </div>
+          <div class="input-group">
+            <label for="min-value">DE</label>
+            <input type="number" id="min-value" name="min-value" value="1" required>
+          </div>
+          <div class="input-group">
+            <label for="max-value">DE</label>
+            <input type="number" id="max-value" name="max-value" value="100" required>
+          </div>
+          <button type="submit" class="sortear-button">
+          SORTEAR <img src="assets/arrow-right.svg" alt="">
+        </button>
+        </div>
+      </form>
+    </div>
+ </section>
+  <script src="script.js"></script>
+</body>
+</html>
