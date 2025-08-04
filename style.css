@@ -29,7 +29,7 @@
 
   --ff-sora: 'Sora', sans-serif;
   --sora-lg-size: 72px;
-  --sora-lg-lh: 130%;
+  --sora-lg-lh: 150%;
   --sora-lg-lw: 800;
 
   --sora-md-size: 40px;
@@ -132,4 +132,57 @@ h3 {
   color: var(--content-primary);
   margin-inline: 2.2rem;
   margin-top: 2.2rem;
+}
+
+.numbers-input-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+label {
+  font-family: var(--ff-roboto-flex);
+  font-weight: var(--roboto-flex-label-md-lw);
+  line-height: var(--roboto-flex-label-md-lh);
+  font-size: var(--roboto-flex-label-sm-size);
+  color: var(--content-secondary);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+#no-repeat {
+  width: 1.875rem;
+  height: 1.25rem;
+}
+
+.slider {
+  background-color: var(--gradient-background);
+}
+
+input {
+  height: 3.5rem;
+  width: 5.4rem;
+  text-align: center;
+  color: var(--content-primary);
+  font-family: var(--ff-sora);
+  font-weight: var(--sora-md-lw);
+  font-size: var(--sora-sm-size);
+  line-height: var(--sora-lg-lh);
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: .5rem;
+  background-color: var(--bg-secondary);
+  border: none;
+}
+
+.draw-button {
+  height: 3.5rem;
+  width: 20rem;
 }
