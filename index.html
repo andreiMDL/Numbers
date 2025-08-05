@@ -32,11 +32,13 @@
             <label for="max-value">ATÉ</label>
             <input type="number" id="max-value" name="max-value" value="100" required>
           </div>
-          <label class="toggle-switch">
-            <input type="checkbox" id="no-repeat">
-            <span class="slider"></span>
-            Não repetir número
-          </label>
+          <div class="toggle-switch">
+            <div class="toggle-button-container">
+              <input type="checkbox" id="slider">
+              <label for="slider"></label>
+            </div>
+            <span class="toggle-switch-text">Não repetir número</span>
+          </div>
           <button type="submit" class="draw-button">
           SORTEAR <img src="assets/arrow-right.svg" alt="">
         </button>

@@ -155,13 +155,56 @@ label {
   margin-top: 2.5rem;
 }
 
-#no-repeat {
-  width: 1.875rem;
-  height: 1.25rem;
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  margin-top: 1.25rem;
 }
 
-.slider {
-  background-color: var(--gradient-background);
+.toggle-switch input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-button-container label[for="slider"] {
+  position: relative;
+  display: inline-block;
+  width: 1.875rem;
+  height: 1.25rem;
+  background-color: var(--bg-gray);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+.toggle-button-container label[for="slider"]::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: .25rem;
+  transform: translateY(-50%);
+  width: .9rem;
+  height: .9rem;
+  background-color: var(--content-primary);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.toggle-switch-text {
+
+  font-family: var(--ff-roboto-flex);
+  font-weight: var(--roboto-flex-p-md-lw);
+  font-size: var(--roboto-flex-p-md-size);
+  color: var(--content-secondary);
+  margin-left: .5rem;
+}
+
+.toggle-button-container input[type="checkbox"]:checked + label[for="slider"] {
+  background: var(--gradient-content);
+}
+
+.toggle-button-container input[type="checkbox"]:checked + label[for="slider"]::before {
+  transform: translate(.5rem, -50%);
 }
 
 input {
@@ -183,6 +226,15 @@ input {
 }
 
 .draw-button {
+  margin-top: 2.5rem;
   height: 3.5rem;
   width: 20rem;
+  background-color: var(--bg-tertiary);
+  border: none;
+  border-radius: .5rem;
+  color: var(--content-primary);
+
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
