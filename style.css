@@ -23,6 +23,8 @@
   --accent-lime: #D1DC97;
   --accent-red: #E9A9B3;
 
+  --gradient-main-color: #77C0AF, #D1DC97 , #E9A9B3, #D586E0, #91A1FA, #77C0AF;
+
   --gradient-background: linear-gradient(to right, #77CC0A 0%, #D1DC97 100%);
   --gradient-border: linear-gradient(to right, #77CC0A 0%, #D1DC97 100%);
   --gradient-content: linear-gradient(to right, #91A1FA 0%, #C58DE7 100%);
@@ -156,58 +158,6 @@ label {
   margin-top: 2.5rem;
 }
 
-.toggle-switch {
-  display: flex;
-  align-items: center;
-  margin-top: 1.25rem;
-}
-
-.toggle-switch input[type="checkbox"] {
-  display: none;
-}
-
-.toggle-button-container label[for="slider"] {
-  position: relative;
-  display: inline-block;
-  width: 1.875rem;
-  height: 1.25rem;
-  background-color: var(--bg-gray);
-  border-radius: 2rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-}
-
-.toggle-button-container label[for="slider"]::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: .25rem;
-  transform: translateY(-50%);
-  width: .9rem;
-  height: .9rem;
-  background-color: var(--content-primary);
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-
-.toggle-switch-text {
-
-  font-family: var(--ff-roboto-flex);
-  font-weight: var(--roboto-flex-p-md-lw);
-  font-size: var(--roboto-flex-p-md-size);
-  color: var(--content-secondary);
-  margin-left: .5rem;
-}
-
-.toggle-button-container input[type="checkbox"]:checked + label[for="slider"] {
-  background: var(--gradient-content);
-}
-
-.toggle-button-container input[type="checkbox"]:checked + label[for="slider"]::before {
-  transform: translate(.5rem, -50%);
-}
-
 input {
   height: 3.5rem;
   width: 5.4rem;
@@ -222,15 +172,95 @@ input {
   -moz-appearance: none;
   appearance: none;
   border-radius: .5rem;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-gray);
+  box-shadow: inset 0 0 5px var(--bg-primary);
   border: none;
+  transition: .2s ease;
+}
+
+input:focus-visible {
+  outline: none;
+  transition: .2s ease;
+  box-shadow: inset 0 0 5px var(--bg-primary);
+}
+
+input[type="number"]:hover {
+  box-shadow: inset 0 0 15px 1px var(--bg-primary);
+  transition: .2s ease;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  margin-top: 1.25rem;
+}
+
+.toggle-switch input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-button-container label[for="slider"] {
+  position: relative;
+  display: inline-block;
+  width: 2rem;
+  height: 1.25rem;
+  background-color: var(--bg-gray);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: inset 0 0 8px var(--bg-secondary);
+}
+
+.toggle-button-container label[for="slider"]::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: .2rem;
+  transform: translateY(-50%);
+  width: .9rem;
+  height: .9rem;
+  background-color: var(--content-primary);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px 1px var(--bg-secondary);
+}
+
+.toggle-switch-text {
+
+  font-family: var(--ff-roboto-flex);
+  font-weight: var(--roboto-flex-p-md-lw);
+  font-size: var(--roboto-flex-p-md-size);
+  color: var(--content-secondary);
+  margin-left: .5rem;
+}
+
+.toggle-button-container input[type="checkbox"]:checked + label[for="slider"] {
+  transition: .2s;
+  background: var(--gradient-content);
+  box-shadow:  0 0 5px var(--accent-pink);
+}
+
+.toggle-button-container input[type="checkbox"]:checked + label[for="slider"]::before {
+  transform: translate(.75rem, -50%);
+  box-shadow: 0 0 5px var(--accent-pink);
+}
+
+.toggle-button-container :hover {
+  scale: 1.1;
+  transition: .2s;
 }
 
 .draw-button {
   margin-top: 2.5rem;
   height: 3.5rem;
   width: 20rem;
-  background-color: var(--bg-tertiary);
+  background: var(--bg-tertiary);
   border: none;
   border-radius: .5rem;
   color: var(--content-primary);
@@ -239,8 +269,52 @@ input {
   line-height: var(--roboto-flex-label-md-lh);
   font-size: var(--roboto-flex-label-sm-size);
 
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: .5rem;
+  transition: .2s ease;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.draw-button::after, .draw-button::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 101.5%;
+  background-image: conic-gradient(from var(--angle), transparent 80%, var(--gradient-main-color));
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 30px;
+  border-radius: .5rem;
+  animation: 3s spin linear infinite;
+}
+
+.draw-button::before {
+  filter: blur(.5rem);
+}
+
+@keyframes spin {
+  from  {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+.draw-button::before {
+  opacity: 1;
+}
+
+.draw-button:hover {
+  scale: 1.08;
 }
