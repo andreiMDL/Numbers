@@ -15,7 +15,7 @@
       <img src="assets/logo.svg" alt="">
     </header>
     <div class="title">
-      <p>ONLINE - GRATUITO</p>
+      <p class="subtitle">ONLINE - GRATUITO</p>
       <h2>SORTEADOR DE NÚMEROS</h2>
     </div>
     <div class="draw-number">
@@ -25,15 +25,15 @@
         <div class="numbers-input-section">
           <div class="input-group">
             <label for="quantity">NÚMEROS</label>
-            <input type="number" id="quantity" name="quantity" value="2" required>
+            <input type="number" class="input-number" id="quantity" name="quantity" value="2" required>
           </div>
           <div class="input-group">
             <label for="min-value">DE</label>
-            <input type="number" id="min-value" name="min-value" value="1" required>
+            <input type="number" class="input-number" id="min-value" name="min-value" value="1" required>
           </div>
           <div class="input-group">
             <label for="max-value">ATÉ</label>
-            <input type="number" id="max-value" name="max-value" value="100" required>
+            <input type="number" class="input-number" id="max-value" name="max-value" value="100" required>
           </div>
           <div class="toggle-switch">
             <div class="toggle-button-container">
@@ -45,6 +45,16 @@
           <button type="submit" class="draw-button">
             SORTEAR <img src="assets/arrow-right.svg" alt="">
           </button>
+        </div>
+        <div class="help">
+          <div class="first-tip">
+            <span><img src="assets/talk.svg" alt="">Como funciona o sorteador de números?</span>
+            <p class="tips">O sorteador utiliza um algoritmo de geração aleatória para criar números dentro do intervalo especificado pelo usuário.</p>
+          </div>
+          <div class="second-tip">
+            <span><img src="assets/talk.svg" alt="">Posso escolher o intervalo dos números?</span>
+            <p class="tips">Sim, você pode definir os valores mínimo e máximo para o intervalo dos números sorteados.</p>
+          </div>
         </div>
       </form>
     </div>
