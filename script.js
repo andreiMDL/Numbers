@@ -68,12 +68,22 @@ min = parseInt(minValue.value);
 max = parseInt(maxValue.value);
 numbers = parseInt(inputNumber.value);
 
-function generateNumber(min, max, numbers) {
+function generateNumber(min, max, numbers, noRepeat) {
   const generatedNumbers = [];
-  for (let i = 0; i < numbers; i++) {
-    const newRandomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-    generatedNumbers.push(newRandomNumber);
-  };
+
+  if (noRepeat) {
+    while (generatedNumbers.length < numbers) {
+      const newRandomNumber = Math.floor(Math.random() * (max - min + 1));
+      if (!generatedNumbers.includes(newRandomNumber)) {
+        generatedNumbers.push(newRandomNumber);
+      }
+    }
+  } else {
+    for (let i = 0; i < numbers; i++) {
+      const newRandomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      generatedNumbers.push(newRandomNumber);
+    };
+  }
   return generatedNumbers;
 }
 
@@ -86,6 +96,7 @@ drawButton.onclick = () => {
   const min = parseInt(minValue.value);
   const max = parseInt(maxValue.value);
   const numbers = parseInt(inputNumber.value);
-  const result = generateNumber(min, max, numbers);
+  const noRepeat = slider.checked;
+  const result = generateNumber(min, max, numbers, noRepeat);
   console.log(result);
 };

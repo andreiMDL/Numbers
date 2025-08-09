@@ -319,7 +319,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .draw-button:hover {
   text-shadow: 0 0 5px var(--bg-tertiary);
-  /* background-color: var(--bg-gray); */
   box-shadow: inset 0 0 15px rgb(0, 0, 0);
 }
 
@@ -350,4 +349,19 @@ span {
 
 .first-tip{
   margin-bottom: 2.25rem;
+}
+
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4.4rem;
+
+  h3 {
+    align-items: center;
+    margin: auto;
+  }
+
+  .first-result-text {
+
+  }
 }
