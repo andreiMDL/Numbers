@@ -21,34 +21,36 @@
     <div class="draw-number">
       <!-- <div class="initial-step">
           <h3>QUERO SORTEAR:</h3>
-      <span class="description">Defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</span>
-      <form action="#">
-        <div class="numbers-input-section">
-          <div class="input-group">
-            <label for="quantity">NÚMEROS</label>
-            <input type="number" class="input-number" id="quantity" name="quantity" value="2" required>
-          </div>
-          <div class="input-group">
-            <label for="min-value">DE</label>
-            <input type="number" class="input-number" id="min-value" name="min-value" value="1" required>
-          </div>
-          <div class="input-group">
-            <label for="max-value">ATÉ</label>
-            <input type="number" class="input-number" id="max-value" name="max-value" value="100" required>
-          </div>
-          <div class="toggle-switch">
-            <div class="toggle-button-container">
-              <input type="checkbox" id="slider">
-              <label for="slider"></label>
+        <span class="description">Defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É rápido e fácil!</span>
+        <form action="#">
+          <div class="numbers-input-section">
+            <div class="input-group">
+              <label for="quantity">NÚMEROS</label>
+              <input type="number" class="input-number" id="quantity" name="quantity" value="2" required>
             </div>
-            <span class="toggle-switch-text">Não repetir número</span>
+            <div class="input-group">
+              <label for="min-value">DE</label>
+              <input type="number" class="input-number" id="min-value" name="min-value" value="1" required>
+            </div>
+            <div class="input-group">
+              <label for="max-value">ATÉ</label>
+              <input type="number" class="input-number" id="max-value" name="max-value" value="100" required>
+            </div>
+            <div class="toggle-switch">
+              <div class="toggle-button-container">
+                <input type="checkbox" id="slider">
+                <label for="slider"></label>
+              </div>
+              <span class="toggle-switch-text">Não repetir número</span>
+            </div>
+            <button type="submit" class="draw-button">
+              SORTEAR <img src="assets/arrow-right.svg" alt="">
+            </button>
+            </div>
           </div>
-          <button type="submit" class="draw-button">
-            SORTEAR <img src="assets/arrow-right.svg" alt="">
-          </button>
-        </div>
+        </form>
       </div> -->
-      <div class="result">
+      <div id="result" class="hidden">
         <h3>RESULTADO DO SORTEIO</h3>
         <div class="result-container">
           <p class="first-result-text">1º RESULTADO</p>
@@ -56,18 +58,16 @@
           <button type="submit" class="draw-again-button">SORTEAR NOVAMENTE <img src="assets/replay.svg" alt=""></button>
         </div>
       </div>
-        <div class="help">
-          <div class="first-tip">
-            <span><img src="assets/talk.svg" alt="">Como funciona o sorteador de números?</span>
-            <p class="tips">O sorteador utiliza um algoritmo de geração aleatória para criar números dentro do intervalo especificado pelo usuário.</p>
-          </div>
-          <div class="second-tip">
-            <span><img src="assets/talk.svg" alt="">Posso escolher o intervalo dos números?</span>
-            <p class="tips">Sim, você pode definir os valores mínimo e máximo para o intervalo dos números sorteados.</p>
-          </div>
+      <div class="help">
+        <div class="first-tip">
+          <span><img src="assets/talk.svg" alt="">Como funciona o sorteador de números?</span>
+          <p class="tips">O sorteador utiliza um algoritmo de geração aleatória para criar números dentro do intervalo especificado pelo usuário.</p>
         </div>
-      </form>
-    </div>
+        <div class="second-tip">
+          <span><img src="assets/talk.svg" alt="">Posso escolher o intervalo dos números?</span>
+          <p class="tips">Sim, você pode definir os valores mínimo e máximo para o intervalo dos números sorteados.</p>
+        </div>
+      </div>
  </section>
   <script src="script.js"></script>
 </body>

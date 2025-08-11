@@ -74,8 +74,8 @@ body {
   min-height: 100vh;
   background-color: var(--bg-primary);
   background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 160%),
-    url(assets/background.png);
+    linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 160%),
+    url(assets/background.png);
 
   display: flex;
   justify-content: center;
@@ -159,24 +159,23 @@ label {
 }
 
 input {
-  cursor: pointer;
-  height: 3.5rem;
-  width: 5.4rem;
-  text-align: center;
-  color: var(--content-primary);
-  font-family: var(--ff-sora);
-  font-weight: var(--sora-md-lw);
-  font-size: var(--sora-sm-size);
-  line-height: var(--sora-lg-lh);
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: .5rem;
-  background-color: var(--bg-gray);
-  box-shadow: inset 0 0 5px var(--bg-primary);
-  border: none;
-  transition: .2s ease;
+cursor: pointer;
+height: 3.5rem;
+width: 5.4rem;
+text-align: center;
+color: var(--content-primary);
+font-family: var(--ff-sora);
+font-weight: var(--sora-md-lw);
+font-size: var(--sora-sm-size);
+line-height: var(--sora-lg-lh);
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+border-radius: .5rem;
+background-color: var(--bg-gray);
+box-shadow: inset 0 0 5px var(--bg-primary);
+border: none;
+transition: .2s ease;
 }
 
 input:focus-visible {
@@ -233,7 +232,6 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .toggle-switch-text {
-
   font-family: var(--ff-roboto-flex);
   font-weight: var(--roboto-flex-p-md-lw);
   font-size: var(--roboto-flex-p-md-size);
@@ -244,7 +242,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .toggle-button-container input[type="checkbox"]:checked + label[for="slider"] {
   transition: .2s;
   background: var(--gradient-content);
-  box-shadow:  0 0 5px var(--accent-pink);
+  box-shadow: 0 0 5px var(--accent-pink);
 }
 
 .toggle-button-container input[type="checkbox"]:checked + label[for="slider"]::before {
@@ -305,7 +303,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 @keyframes spin {
-  from  {
+  from {
     --angle: 0deg;
   }
   to {
@@ -351,17 +349,102 @@ span {
   margin-bottom: 2.25rem;
 }
 
-.result {
+#result.hidden,
+.initial-step.hidden {
+  /* display: none; */
+}
+
+#result {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   margin-top: 4.4rem;
+  align-items: center;
+}
 
-  h3 {
-    align-items: center;
-    margin: auto;
-  }
+#result h3 {
+  font-family: var(--ff-roboto-flex);
+  font-weight: var(--roboto-flex-md-lw);
+  font-size: var(--roboto-flex-label-md-size);
+  line-height: var(--roboto-flex-md-lh);
+  align-items: center;
+  margin: auto;
+}
 
-  .first-result-text {
+#result .first-result-text {
+  font-family: var(--ff-roboto-mono);
+  font-weight: var(--roboto-mono-overline-lw);
+  font-size: var(--roboto-mono-overline-size);
+  line-height: var(--roboto-mono-overline-lh);
+  color: var(--content-secondary);
+  text-align: center;
+}
 
-  }
+.generated-numbers {
+  width: 100%;
+  height: 300px;
+}
+
+.generated-numbers .number-item {
+  opacity: 0;
+  transform: translateY(20px) scale(0.5);
+  animation: fadeInScaleUp 0.8s ease-out forwards;
+}
+
+.draw-again-button {
+  cursor: pointer;
+  margin-top: 2.5rem;
+  height: 3.5rem;
+  width: 20rem;
+  background: var(--bg-tertiary);
+  border: none;
+  border-radius: .5rem;
+  color: var(--content-primary);
+  font-family: var(--ff-roboto-flex);
+  font-weight: var(--roboto-flex-label-md-lw);
+  line-height: var(--roboto-flex-label-md-lh);
+  font-size: var(--roboto-flex-label-sm-size);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  transition: .2s ease;
+  transition: transform 0.6s ease;
+}
+
+.draw-again-button::after, .draw-again-button::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 101.5%;
+  background-image: conic-gradient(from var(--angle), transparent 80%, var(--gradient-main-color));
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 30px;
+  border-radius: .5rem;
+  animation: 10s spin linear infinite;
+}
+
+.draw-again-button::before {
+  filter: blur(.5rem);
+}
+
+.draw-again-button::before {
+  opacity: 1;
+}
+
+.draw-again-button:hover {
+  text-shadow: 0 0 5px var(--bg-tertiary);
+  box-shadow: inset 0 0 15px rgb(0, 0, 0);
+}
+
+.draw-again-button img {
+  transition: transform 1s ease;
+}
+
+.draw-again-button:hover img{
+  transform: rotate(360deg);
 }

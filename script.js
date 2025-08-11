@@ -6,7 +6,12 @@ const drawButton = document.querySelector('.draw-button');
 const defaultNumberValue = inputNumber.value;
 const defaultMinValue = minValue.value;
 const defaultMaxValue = maxValue.value;
+const initialStep = document.querySelector('.initial-step');
+const resultSection = document.getElementById('result');
+const generatedNumbersContainer = document.querySelector('.generated-numbers');
+const drawAgainButton = document.querySelector('.draw-again-button');
 
+// Funções para manipulação dos inputs
 inputNumber.oninput = () => {
   if (inputNumber.value > 10) {
     inputNumber.value = 10;
@@ -14,7 +19,6 @@ inputNumber.oninput = () => {
   if (inputNumber.value <= 0) {
     inputNumber.value = 1;
   }
-  console.log(inputNumber.value);
 };
 
 inputNumber.onfocus = () => {
@@ -33,8 +37,7 @@ minValue.oninput = () => {
   }
   if (minValue.value > 999) {
     minValue.value = 999;
-  };
-  console.log(minValue.value);
+  }
 };
 
 minValue.onfocus = () => {
@@ -50,8 +53,7 @@ minValue.onblur = () => {
 maxValue.oninput = () => {
   if (maxValue.value > 1000) {
     maxValue.value = 1000;
-  };
-  console.log(maxValue.value);
+  }
 };
 
 maxValue.onfocus = () => {
@@ -64,16 +66,17 @@ maxValue.onblur = () => {
   }
 };
 
-min = parseInt(minValue.value);
-max = parseInt(maxValue.value);
-numbers = parseInt(inputNumber.value);
+slider.onchange = () => {
+  console.log(slider.checked);
+};
 
+
+// Função para gerar os números
 function generateNumber(min, max, numbers, noRepeat) {
   const generatedNumbers = [];
-
   if (noRepeat) {
     while (generatedNumbers.length < numbers) {
-      const newRandomNumber = Math.floor(Math.random() * (max - min + 1));
+      const newRandomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
       if (!generatedNumbers.includes(newRandomNumber)) {
         generatedNumbers.push(newRandomNumber);
       }
@@ -82,21 +85,38 @@ function generateNumber(min, max, numbers, noRepeat) {
     for (let i = 0; i < numbers; i++) {
       const newRandomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
       generatedNumbers.push(newRandomNumber);
-    };
+    }
   }
   return generatedNumbers;
 }
 
-slider.onchange = () => {
-  console.log(slider.checked);
-}
-
-drawButton.onclick = () => {
+// Evento de clique para o botão "Sortear"
+drawButton.addEventListener('click', (event) => {
   event.preventDefault();
+
+  // Esconde a seção inicial e mostra a de resultado
+  initialStep.classList.add('hidden');
+  resultSection.classList.remove('hidden');
+
+  // Obtém os valores dos inputs e gera os números
   const min = parseInt(minValue.value);
-  const max = parseInt(maxValue.value);
+  const max = parseInt(maxValue.value); // Corrigido o erro de digitação de "parent" para "parseInt"
   const numbers = parseInt(inputNumber.value);
   const noRepeat = slider.checked;
   const result = generateNumber(min, max, numbers, noRepeat);
-  console.log(result);
-};
+
+  // Exibe os números sorteados
+  generatedNumbersContainer.innerHTML = '';
+  result.forEach(number => {
+    const numberElement = document.createElement('div');
+    numberElement.textContent = number;
+    numberElement.classList.add('number-item');
+    generatedNumbersContainer.appendChild(numberElement);
+  });
+});
+
+// Evento de clique para o botão "Sortear Novamente"
+drawAgainButton.addEventListener('click', () => {
+  resultSection.classList.add('hidden');
+  initialStep.classList.remove('hidden');
+});
