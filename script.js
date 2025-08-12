@@ -107,11 +107,13 @@ drawButton.addEventListener('click', (event) => {
 
   // Exibe os números sorteados
   generatedNumbersContainer.innerHTML = '';
-  result.forEach(number => {
-    const numberElement = document.createElement('div');
-    numberElement.textContent = number;
-    numberElement.classList.add('number-item');
-    generatedNumbersContainer.appendChild(numberElement);
+  result.forEach((number, index) => {
+    setTimeout(() => {
+      const numberElement = document.createElement('div');
+      numberElement.textContent = number;
+      numberElement.classList.add('number-item');
+      generatedNumbersContainer.appendChild(numberElement);
+    }, index * 2000);
   });
 });
 

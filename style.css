@@ -351,23 +351,24 @@ span {
 
 #result.hidden,
 .initial-step.hidden {
-  /* display: none; */
+  display: none;
 }
 
-#result {
+.result-title {
+  display: flex;
+  font-family: var(--ff-roboto-flex);
+  font-size: var(--roboto-flex-label-md-size);
+  line-height: var(--roboto-flex-md-lh);
+  align-items: center;
+  color: var(--content-primary);
+}
+
+.result-container {
   display: flex;
   flex-direction: column;
   margin-top: 4.4rem;
   align-items: center;
-}
-
-#result h3 {
-  font-family: var(--ff-roboto-flex);
-  font-weight: var(--roboto-flex-md-lw);
-  font-size: var(--roboto-flex-label-md-size);
-  line-height: var(--roboto-flex-md-lh);
-  align-items: center;
-  margin: auto;
+  align-content: center;
 }
 
 #result .first-result-text {
@@ -377,17 +378,64 @@ span {
   line-height: var(--roboto-mono-overline-lh);
   color: var(--content-secondary);
   text-align: center;
+  margin-bottom: 2.5rem;
 }
 
 .generated-numbers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
   width: 100%;
-  height: 300px;
+  padding: 1rem;
 }
 
 .generated-numbers .number-item {
+  flex-basis: calc(33.33% - 1.5rem);
+  width: 5rem;
+  height: 6.125rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem;
+  font-family: var(--ff-roboto-mono);
+  font-weight: var(--roboto-mono-overline-lw);
+  font-size: 48px;
+  line-height: var(--roboto-mono-overline-lh);
+  color: var(--bg-brand);
+
   opacity: 0;
   transform: translateY(20px) scale(0.5);
-  animation: fadeInScaleUp 0.8s ease-out forwards;
+  animation: fadeInScaleUp 0.8s ease-out forwards, moveRotate 2s ease alternate-reverse, slideToLeft .5s ease;
+  border: 1px solid blue;
+
+  transition: all .4s ease-in-out;
+}
+
+@keyframes fadeInScaleUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes moveRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideToLeft {
+  to {
+    transform: translateX(-7rem);
+  }
 }
 
 .draw-again-button {
