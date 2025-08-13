@@ -112,8 +112,9 @@ drawButton.addEventListener('click', (event) => {
       const numberElement = document.createElement('div');
       numberElement.textContent = number;
       numberElement.classList.add('number-item');
+      numberElement.classList.add('box-number');
       generatedNumbersContainer.appendChild(numberElement);
-    }, index * 2000);
+    }, index * 1000);
   });
 });
 

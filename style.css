@@ -394,9 +394,6 @@ span {
 
 .generated-numbers .number-item {
   flex-basis: calc(33.33% - 1.5rem);
-  width: 5rem;
-  height: 6.125rem;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -407,36 +404,53 @@ span {
   font-size: 48px;
   line-height: var(--roboto-mono-overline-lh);
   color: var(--bg-brand);
-
+  animation-delay: 1s;
   opacity: 0;
-  transform: translateY(20px) scale(0.5);
-  animation: fadeInScaleUp 0.8s ease-out forwards, moveRotate 2s ease alternate-reverse, slideToLeft .5s ease;
-  border: 1px solid blue;
+  /* transform: translateY(20px) scale(0.5); */
 
-  transition: all .4s ease-in-out;
+  transition: fadeInNumber 1s ease;
+}
+
+.box-number {
+  width: 5rem;
+  height: 6.125rem;
+  background-color: var(--bg-gray);
+  border-radius: 1rem;
+  animation: fadeInScaleUp 1s ease-out forwards,
+    moveRotate 1s ease-out 1s forwards;
+}
+
+@keyframes fadeInNumber {
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: scale(1);
   }
 }
 
 @keyframes moveRotate {
   from {
-    transform: rotate(0deg);
+    transform: rotate(180deg);
   }
   to {
     transform: rotate(360deg);
   }
 }
 
-@keyframes slideToLeft {
+/* @keyframes slideToLeft {
   to {
     transform: translateX(-7rem);
   }
-}
+} */
 
 .draw-again-button {
   cursor: pointer;
